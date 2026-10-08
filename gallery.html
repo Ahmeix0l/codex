@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Gallery — A Little Spark</title>
+  <style>
+    :root { color-scheme:dark; --ink:#f4f4ff; --muted:#a8b0ce; --cyan:#72e7f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; padding:6rem 1rem 3rem; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(ellipse at 20% 15%,#273264 0,transparent 36%),radial-gradient(ellipse at 85% 80%,#38235d 0,transparent 35%),#0b1020; }
+    body::before,body::after { content:""; position:fixed; z-index:-1; width:32rem; height:32rem; border:1px solid #ffffff0d; border-radius:50%; pointer-events:none; }
+    body::before { top:-20rem; right:-9rem; box-shadow:0 0 0 4rem #ffffff05,0 0 0 8rem #ffffff03; }
+    body::after { bottom:-25rem; left:-14rem; box-shadow:0 0 0 5rem #ffffff04,0 0 0 10rem #ffffff02; }
+    .site-nav { position:fixed; z-index:2; top:1.25rem; left:50%; transform:translateX(-50%); display:flex; gap:.25rem; padding:.4rem; border:1px solid #ffffff20; border-radius:999px; background:#11172acc; backdrop-filter:blur(14px); }
+    .site-nav a { padding:.65rem .9rem; border-radius:999px; color:var(--muted); font-size:.85rem; text-decoration:none; transition:color .2s,background .2s; }
+    .site-nav a:hover,.site-nav a[aria-current="page"] { color:var(--ink); background:#ffffff12; }
+    .site-nav a:focus-visible { outline:2px solid var(--cyan); outline-offset:2px; }
+    main { width:min(100%,1000px); margin:0 auto; }
+    .intro { max-width:660px; margin:1rem auto 2.5rem; text-align:center; animation:rise .7s ease both; }
+    .eyebrow { margin:0 0 1rem; color:var(--cyan); font-size:.75rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(3rem,9vw,5.8rem); line-height:.98; letter-spacing:-.075em; }
+    h1 span { color:transparent; background:linear-gradient(100deg,#fff 10%,#c7b8ff 55%,#75e7ed); background-clip:text; -webkit-background-clip:text; }
+    .intro p:last-child { margin:1.25rem auto 0; color:var(--muted); font-size:1.05rem; line-height:1.7; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .tile { min-height:230px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; padding:1.3rem; border:1px solid #ffffff20; border-radius:22px; background:linear-gradient(145deg,#ffffff12,#ffffff05); box-shadow:0 20px 55px #0003,inset 0 1px #ffffff12; animation:rise .7s ease both; transition:transform .25s,border-color .25s; }
+    .tile:hover { transform:translateY(-5px); border-color:#bba7ff66; }
+    .tile:nth-child(2) { animation-delay:.08s; }.tile:nth-child(3) { animation-delay:.16s; }.tile:nth-child(4) { animation-delay:.24s; }.tile:nth-child(5) { animation-delay:.32s; }.tile:nth-child(6) { animation-delay:.4s; }
+    .art { min-height:145px; display:grid; place-items:center; border-radius:15px; font-size:3.6rem; }
+    .art-one { background:radial-gradient(circle at 50% 45%,#a98aff99,transparent 48%),linear-gradient(135deg,#282752,#151a35); }
+    .art-two { background:radial-gradient(circle at 60% 40%,#73e7f277,transparent 45%),linear-gradient(135deg,#163b51,#171b35); }
+    .art-three { background:radial-gradient(circle at 40% 55%,#ffbd8e66,transparent 45%),linear-gradient(135deg,#492b4d,#191a37); }
+    .art-four { background:radial-gradient(circle at 55% 50%,#f38db466,transparent 45%),linear-gradient(135deg,#47294b,#1b1937); }
+    .art-five { background:radial-gradient(circle at 45% 45%,#8cce9c66,transparent 45%),linear-gradient(135deg,#214942,#171e37); }
+    .art-six { background:radial-gradient(circle at 50% 50%,#f5d77977,transparent 45%),linear-gradient(135deg,#4c3a35,#1d1a37); }
+    .caption { padding:.95rem .15rem .1rem; }
+    .caption h2 { margin:0; font-size:1rem; letter-spacing:-.02em; }
+    .caption p { margin:.35rem 0 0; color:var(--muted); font-size:.82rem; line-height:1.5; }
+    @keyframes rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    @media(max-width:700px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:480px) { body { padding-top:5.5rem; } .site-nav { top:.8rem; gap:0; } .site-nav a { padding:.6rem .65rem; font-size:.78rem; } .grid { gap:.7rem; } .tile { min-height:195px; padding:.8rem; border-radius:17px; } .art { min-height:120px; font-size:3rem; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <header class="intro">
+      <p class="eyebrow">A collection of little sparks</p>
+      <h1><span>The Gallery</span></h1>
+      <p>A few bright ideas, gathered in one place. Every small detail is a reminder that a little imagination goes a long way.</p>
+    </header>
+    <section class="grid" aria-label="Gallery collection">
+      <article class="tile"><div class="art art-one" aria-hidden="true">✦</div><div class="caption"><h2>First Light</h2><p>A bright beginning, full of possibility.</p></div></article>
+      <article class="tile"><div class="art art-two" aria-hidden="true">☁</div><div class="caption"><h2>Daydream</h2><p>Room to wander and wonder.</p></div></article>
+      <article class="tile"><div class="art art-three" aria-hidden="true">☾</div><div class="caption"><h2>Quiet Hours</h2><p>A little calm at the end of the day.</p></div></article>
+      <article class="tile"><div class="art art-four" aria-hidden="true">✿</div><div class="caption"><h2>In Bloom</h2><p>Good things take their own time.</p></div></article>
+      <article class="tile"><div class="art art-five" aria-hidden="true">❋</div><div class="caption"><h2>Fresh Growth</h2><p>Curiosity makes space for new ideas.</p></div></article>
+      <article class="tile"><div class="art art-six" aria-hidden="true">☼</div><div class="caption"><h2>Golden Hour</h2><p>A moment worth holding onto.</p></div></article>
+    </section>
+  </main>
+</body>
+</html>
